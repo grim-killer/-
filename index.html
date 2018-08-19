@@ -167,7 +167,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/19/webpack的安装/">webwebpack的安装</a>
+      <a class="article-title" href="/2018/08/19/webpack的安装/">webpack的安装</a>
     </h1>
   
 
@@ -180,7 +180,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>1.从官网下载node.js,使用npm安装webpack </p>
+<p>  为了不被墙，使用淘宝的npm镜像：</p>
+<pre><code>//接下来的步骤都由cnpm代替npm指令
+npm install -g cnpm -registry=http://registry.npm.taobao.org 
+</code></pre>
+
+<p> 2.安装webpack</p>
+ <pre><code>//全局安装
+npm install -g webpack
+//安装到你的项目目录
+npm install --save-dev webpack
+</code></pre>
+
+<p> 3.提示没有安装cli(我出现的情况)，安装cli：</p>
+<pre><code>npm install webpack-cli -g</code></pre>
+
+<p>4.安装好后查看webpack版本：</p>
+<pre>webpack -v</pre>
+
+<p>如果能看到版本号的话，到这里已经安装好啦！</p>
+
       
 
       
