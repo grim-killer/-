@@ -180,7 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-准备工作"><a href="#一-准备工作" class="headerlink" title="一.准备工作"></a>一.准备工作<br></h2><p>###1.git的ssh的配置(我刚开始没配置后面出了好多问题）<br></p>
+        <h2 id="一-准备工作"><a href="#一-准备工作" class="headerlink" title="一.准备工作"></a>一.准备工作<br></h2><p>###1.git的ssh的配置(我刚开始没配置后面出了好多问题）<br>###</p>
 <blockquote>
 <p>先查看自己电脑中的~/.ssh目录</p>
 </blockquote>
@@ -191,8 +191,7 @@ $ ls</pre>
 <blockquote>
 <p>创建ssh</p>
 </blockquote>
-<pre>
-$ ssh-keygen -t rsa -C "your_email@youremail.com"</pre>
+<pre>$ ssh-keygen -t rsa -C "your_email@youremail.com"</pre>
 > 一路enter后出现
 <pre>Your identification has been saved in /home/you/.ssh/id_rsa. 
 Your public key has been saved in /home/you/.ssh/id_rsa.pub. 
@@ -204,12 +203,12 @@ The key fingerprint is: #01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_em
 点击 Add SSH key。
 然后你复制上面的公钥内容，粘贴进“Key”文本域内。
  title域，你随便填一个都行。点击 Add key。</pre>
->查看是否设置成功
+> 查看是否设置成功
 <pre>$ ssh -T git@github.com</pre>
-    //成功结果显示看到
-    Hi username! You've successfully authenticated, but GitHub does not # provide shell access.
+   <pre>//成功结果显示看到
+   Hi username! You've successfully authenticated, but GitHub does not # provide shell access.</pre>
 > 修改本地的ssh remote url.不用https协议，改用git协议<br>
-> 查看当前的remote url<br>
+ 查看当前的remote url<br>
 <pre>$ git remote -v<br></pre>
 > 如果看到是https协议，改成ssh协议（从github仓库上可以看到）：
 <pre>origin https://github.com/someaccount/someproject.git (fetch)
@@ -218,10 +217,10 @@ origin https://github.com/someaccount/someproject.git (push)</pre>
 <pre>$ git remote add origin git@github.com:someaccount/someproject.git</pre>
 >设置完再用remote url查看是否设置成功
 
-###2.node.js和文档编辑器Markdown下载
-##二.开始搭建
+###2.node.js和文档编辑器Markdown下载###
+##二.开始搭建##
 > 创建文件夹blog<br>
-> 在文件夹中使用git bash输入指令(以下的npm均用cnpm代替)：
+ 在文件夹中使用git bash输入指令(以下的npm均用cnpm代替)：
 <pre>//全局安装hexo<br>$ npm install -g hexo-cli</pre>
   <pre>//更新hexo至最新<br>$ npm update hexo -g</pre>
 > 在指定文件中新建所需要的文件
@@ -252,7 +251,7 @@ timezone           网站时区。Hexo 默认使用您电脑的时区
 </pre>
 ## 三.将hexo博客部署在github上 ##
 > 先在github上创建新仓库
-> **该仓库名称必须是：你的 Github 名称.github.io**
+ **该仓库名称必须是：你的 Github 名称.github.io**
 <pre>//配置_config.yml文件
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -279,7 +278,7 @@ $ git pull
 </blockquote>
 <pre>$ git clone https://github.com/litten/hexo-theme-yilia.git themes/xxx</pre>
 > 修改_config.yml文件中的themes为主题名称
-> 在主目录进入themes中：
+ 在主目录进入themes中：
 <pre>$ cd themes/xxx
 $ git pull</pre>
 
