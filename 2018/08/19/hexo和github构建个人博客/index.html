@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//grimkiller.me">
-  <title>Archives | 废物转运站</title>
+  <title>hexo和github构建个人博客 | 废物转运站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="杭州电子科技大学15级。目前在前端的道路上探索~">
+  <meta name="description" content="一.准备工作###1.git的ssh的配置(我刚开始没配置后面出了好多问题）  先查看自己电脑中的~/.ssh目录  $ cd ~/.ssh  $ ls  发现目录空白  创建ssh   $ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot; &amp;gt; 一路enter后出现 Your identification has been saved in /home">
 <meta name="keywords" content="前端,js,jquery,html,css">
-<meta property="og:type" content="website">
-<meta property="og:title" content="废物转运站">
-<meta property="og:url" content="//grimkiller.me/archives/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo和github构建个人博客">
+<meta property="og:url" content="//grimkiller.me/2018/08/19/hexo和github构建个人博客/index.html">
 <meta property="og:site_name" content="废物转运站">
-<meta property="og:description" content="杭州电子科技大学15级。目前在前端的道路上探索~">
+<meta property="og:description" content="一.准备工作###1.git的ssh的配置(我刚开始没配置后面出了好多问题）  先查看自己电脑中的~/.ssh目录  $ cd ~/.ssh  $ ls  发现目录空白  创建ssh   $ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot; &amp;gt; 一路enter后出现 Your identification has been saved in /home">
 <meta property="og:locale" content="825694449@qq.com">
+<meta property="og:updated_time" content="2018-08-19T07:20:08.618Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="废物转运站">
-<meta name="twitter:description" content="杭州电子科技大学15级。目前在前端的道路上探索~">
+<meta name="twitter:title" content="hexo和github构建个人博客">
+<meta name="twitter:description" content="一.准备工作###1.git的ssh的配置(我刚开始没配置后面出了好多问题）  先查看自己电脑中的~/.ssh目录  $ cd ~/.ssh  $ ls  发现目录空白  创建ssh   $ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot; &amp;gt; 一路enter后出现 Your identification has been saved in /home">
   
     <link rel="alternative" href="/atom.xml" title="废物转运站" type="application/atom+xml">
   
@@ -158,76 +159,259 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-hexo和github构建个人博客" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      hexo和github构建个人博客
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/19/hexo和github构建个人博客/" class="archive-article-date">
+
+        
+        <a href="/2018/08/19/hexo和github构建个人博客/" class="archive-article-date">
   	<time datetime="2018-08-19T06:05:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/19/hexo和github构建个人博客/">hexo和github构建个人博客</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-准备工作"><a href="#一-准备工作" class="headerlink" title="一.准备工作"></a>一.准备工作<br></h2><p>###1.git的ssh的配置(我刚开始没配置后面出了好多问题）<br></p>
+<blockquote>
+<p>先查看自己电脑中的~/.ssh目录</p>
+</blockquote>
+<pre>$ cd ~/.ssh 
+$ ls</pre>
 
-        <div class="article-info info-on-right">
-          
-          
+<p><code>发现目录空白</code><br></p>
+<blockquote>
+<p>创建ssh</p>
+</blockquote>
+<pre>
+$ ssh-keygen -t rsa -C "your_email@youremail.com"</pre>
+> 一路enter后出现
+<pre>Your identification has been saved in /home/you/.ssh/id_rsa. 
+Your public key has been saved in /home/you/.ssh/id_rsa.pub. 
+The key fingerprint is: #01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@youremail.com</pre>
+> 查看生成的公钥
+<pre>$ cat ~/.ssh/id_rsa.pub </pre>  
+> 在github账户上添加key
+<pre>登陆你的github帐户。然后Account Settings->左栏点击SSH Keys 
+点击 Add SSH key。
+然后你复制上面的公钥内容，粘贴进“Key”文本域内。
+ title域，你随便填一个都行。点击 Add key。</pre>
+>查看是否设置成功
+<pre>$ ssh -T git@github.com</pre>
+    //成功结果显示看到
+    Hi username! You've successfully authenticated, but GitHub does not # provide shell access.
+> 修改本地的ssh remote url.不用https协议，改用git协议<br>
+> 查看当前的remote url<br>
+<pre>$ git remote -v<br></pre>
+> 如果看到是https协议，改成ssh协议（从github仓库上可以看到）：
+<pre>origin https://github.com/someaccount/someproject.git (fetch)
+origin https://github.com/someaccount/someproject.git (push)</pre>
+<pre>$ git remote rm origin</pre>
+<pre>$ git remote add origin git@github.com:someaccount/someproject.git</pre>
+>设置完再用remote url查看是否设置成功
 
+###2.node.js和文档编辑器Markdown下载
+##二.开始搭建
+> 创建文件夹blog<br>
+> 在文件夹中使用git bash输入指令(以下的npm均用cnpm代替)：
+<pre>//全局安装hexo<br>$ npm install -g hexo-cli</pre>
+  <pre>//更新hexo至最新<br>$ npm update hexo -g</pre>
+> 在指定文件中新建所需要的文件
+<pre>//初始化文件夹
+$ hexo init blog
+//打开文件夹
+$ cd blog
+//安装
+$ npm install
+//生成静态页面
+$ hexo generate
+//启动服务
+$ hexo server</pre>
+<pre>//打印信息如下表示服务启动成功
+//其中的http://localhost:4000/可以在本地查看效果
+$ hexo server
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
+</pre>
+>hexo配置（_config.yml 文件)
+<pre>//乱码的话可以用notepad++转换为utf-8编码
+title              网站标题
+subtitle           网站副标题
+description        网站描述
+author             您的名字
+language           网站使用的语言
+timezone           网站时区。Hexo 默认使用您电脑的时区
+</pre>
+## 三.将hexo博客部署在github上 ##
+> 先在github上创建新仓库
+> **该仓库名称必须是：你的 Github 名称.github.io**
+<pre>//配置_config.yml文件
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: git@github.com:你的github名字/你的github名字.github.io.git
+  branch: master
+  message</pre>
+> 接着安装hexo-deployer-git
+<pre>//安装
+$ npm install hexo-deployer-git --save
+//部署
+$ hexo deploy
+//重新部署
+$ hexo clean
+$ hexo generate
+$ hexo deploy
+//将更新的配置信息上传到git
+$ git pull
+</pre>
+
+<h2 id="四-博客主题更改"><a href="#四-博客主题更改" class="headerlink" title="四.博客主题更改"></a>四.博客主题更改</h2><blockquote>
+<p>下载</p>
+</blockquote>
+<pre>$ git clone https://github.com/litten/hexo-theme-yilia.git themes/xxx</pre>
+> 修改_config.yml文件中的themes为主题名称
+> 在主目录进入themes中：
+<pre>$ cd themes/xxx
+$ git pull</pre>
+
+<p>参考博客：<br><br><a href="https://www.cnblogs.com/z-x-y/p/8284504.html" target="_blank" rel="noopener">git设置ssh以及好处</a><br><br><a href="https://www.cnblogs.com/wumz/p/8030244.html" target="_blank" rel="noopener">使用node.js+hexo+github搭建博客</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://grimkiller.me/2018/08/19/hexo和github构建个人博客/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/19/webpack的安装/" class="archive-article-date">
-  	<time datetime="2018-08-19T03:23:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/19/webpack的安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack的安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/19/webpack的安装/">webpack的安装</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -250,8 +434,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
