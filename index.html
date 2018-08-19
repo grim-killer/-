@@ -160,6 +160,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-git上传本地项目以及更新项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/19/git上传本地项目以及更新项目/">git上传本地项目以及更新项目目</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/19/git上传本地项目以及更新项目/" class="archive-article-date">
+  	<time datetime="2018-08-19T07:47:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="上传项目"><a href="#上传项目" class="headerlink" title="上传项目"></a>上传项目</h2><p>1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库</p>
+<pre><code>git init
+</code></pre><p>2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件</p>
+<pre><code>git add .
+</code></pre><p>3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明</p>
+<pre><code>git commit -m &apos;first commit&apos;
+</code></pre><p>4、关联到远程库</p>
+<p><code>git remote add origin</code> 你的远程库地址<br>如：</p>
+<pre><code>git remote add origin https://github.com/cade8800/ionic-demo.git
+</code></pre><p>5、获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）</p>
+<pre><code>git pull --rebase origin master
+</code></pre><p>6、把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令后会要求输入用户名、密码，验证通过后即开始上传。</p>
+<pre><code>git push -u origin master
+</code></pre><p>7、状态查询命令</p>
+<pre><code>git status
+</code></pre><h2 id="更新之后上传"><a href="#更新之后上传" class="headerlink" title="更新之后上传"></a>更新之后上传</h2><p>1.查询是否有未上传的文件</p>
+<pre><code>git status
+</code></pre><p>2.添加文件</p>
+<pre><code>git add .
+</code></pre><p>3.添加描述信息</p>
+<pre><code>git commit -m
+</code></pre><p>4.取回origin分支与当前的master合并</p>
+<pre><code>git pull origin master
+</code></pre><p>5.将本地的master分支推送到远程主机</p>
+<pre><code>git push -u origin master
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/19/git上传本地项目以及更新项目/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hexo和github构建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
