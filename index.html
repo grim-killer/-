@@ -160,6 +160,409 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于两栏和三栏的布局实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/20/关于两栏和三栏的布局实现/">关于两栏和三栏的布局实现</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/20/关于两栏和三栏的布局实现/" class="archive-article-date">
+  	<time datetime="2018-08-20T02:38:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-实现两栏布局，左侧和右侧都占固定的百分比的宽度"><a href="#一-实现两栏布局，左侧和右侧都占固定的百分比的宽度" class="headerlink" title="一.实现两栏布局，左侧和右侧都占固定的百分比的宽度"></a>一.实现两栏布局，左侧和右侧都占固定的百分比的宽度</h2><p>假设左边占30%，右边占70%<br></p>
+<p>1.双float方法</p>
+<pre>.left{
+         float: left;
+         width: 30%;
+         height: 300px;
+         background: aqua;
+}
+.right{
+      float: left;
+      width: 70%;
+      height: 300px;
+      background: bisque;
+}
+</pre>
+
+<p>2.左边float，右边用position：relative</p>
+<pre> 
+.left{
+         float: left;
+         width: 30%;
+         height: 300px;
+         background: aqua;
+     }
+.right{
+         position: relative;
+         left: 30%;
+         width: 70%;
+         height: 300px;
+         background: bisque;
+     }
+</pre>
+
+<p>3.弹性布局</p>
+<pre>.container{//父元素要设置为flex属性
+         display: flex;
+     }
+.left{
+         flex: 3;
+         width: 30%;
+         height: 300px;
+         background: aqua;
+     }
+.right{
+         flex: 7;
+         width: 70%;
+         height: 300px;
+         background: bisque;
+     }
+</pre>
+
+<h2 id="二-实现两栏布局，一侧固定，一侧自适应宽度"><a href="#二-实现两栏布局，一侧固定，一侧自适应宽度" class="headerlink" title="二.实现两栏布局，一侧固定，一侧自适应宽度"></a>二.实现两栏布局，一侧固定，一侧自适应宽度</h2><p>假设左侧固定宽度300px，右侧自适应</p>
+<p>1.左侧float，右侧设置margin-left:300px</p>
+<pre>
+.left{
+         float:left;
+         width: 300px;
+         height: 300px;
+         background: aqua;
+        }
+.right{
+         margin-left: 300px;
+         height: 300px;
+         background: bisque;
+        }
+</pre>
+
+<p>2.左侧设置position：absolute，右侧自适应（跟上面方法差不多）</p>
+<pre>
+.left{
+         position:absolute;
+         width: 300px;
+         height: 300px;
+         background: aqua;
+        }
+.right{
+         margin-left: 300px;
+         height: 300px;
+         background: bisque;
+        }
+</pre>
+
+<p>3.双float</p>
+<pre>
+.left{
+         float: left;
+         height: 300px;
+         background: aqua;
+         width: 300px;
+
+        }
+.right{
+         float: left;   
+         width: calc(100% - 300px);
+         height: 300px;
+         background: bisque;
+        }
+</pre>
+
+<p>4.左侧float，右侧BFC</p>
+<pre>
+.left{
+          float: left;
+          width: 300px;
+          height: 300px;
+          background: aqua;
+       }
+.right{
+          overflow: auto;//触发BFC
+          height: 300px;
+          background: bisque;
+        }
+</pre>
+
+<p>5.弹性布局</p>
+<pre>
+.container{
+            display: flex;
+        }
+.left{
+            width: 300px;
+            height: 300px;
+            background: aqua;
+        }
+.right{
+            flex: 1;
+            height: 300px;
+            background: bisque;
+        }
+</pre>
+
+<p>4.采用inline-box</p>
+<pre>
+.container{
+           box-sizing: border-box;
+           font-size: 0;/*消除空格的影响*/
+       }
+.left,.right{
+            box-sizing: border-box;
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            background: aqua;
+            vertival-aligh:top;
+            //两个inline-block的盒子必须设置顶端对齐
+        }
+.right{
+
+            width: calc(100% - 300px) ;//动态计算宽度
+            background: bisque;
+        }
+</pre>
+
+<h2 id="三-实现三栏布局-左右两边固定，中间自适应"><a href="#三-实现三栏布局-左右两边固定，中间自适应" class="headerlink" title="三.实现三栏布局,左右两边固定，中间自适应"></a>三.实现三栏布局,左右两边固定，中间自适应</h2><p>左右固定，中间自适应</p>
+<p>ccs:<br>   <pre><br>     contain<br>           -mian//中间的必须先加载<br>           -left<br>           -right<br> </pre></p>
+<p>1.双飞翼布局</p>
+<pre>
+ .main{
+            float: left;
+            width: 100%;
+            height: 300px;
+            background: #a60000;
+
+        }
+.left{
+            float: left;
+            width: 220px;
+            height: 300px;
+            background: aqua;
+            margin-left: -100%;
+        }
+.right{
+            float: right;//或者right都行
+            width: 220px;
+            height: 300px;
+            background: bisque;
+            margin-left: -220px;
+        }
+</pre>
+
+<p>2.圣杯布局</p>
+<pre>
+.container{//正因为它比双飞翼多了这个 所以下面左右两个模块才要position为relative
+           padding: 0 220px;
+       }
+       .main{
+           float: left;
+           width: 100%;
+           height: 300px;
+           background: #a60000;
+
+       }
+.left{
+           float: left;
+           width: 220px;
+           height: 300px;
+           background: aqua;
+           margin-left: -100%;
+           position: relative;
+           left: -220px;
+       }
+.right{
+           float: left;
+           width: 220px;
+           height: 300px;
+           background: bisque;
+           position: relative;
+           margin-left: -220px;
+           left: 220px;
+       }
+</pre>
+
+<p>3.弹性布局</p>
+<p>css：</p>
+<pre>
+   contain
+       -left
+       -main
+       -right
+</pre>
+
+<p>style:</p>
+<pre>
+  .container{
+            display: flex;
+        }
+
+        .left{
+            height: 300px;
+            width: 220px;
+            background: aqua;
+        }
+        .main{
+            flex: 1;
+            height: 300px;
+            background: #a60000;
+        }
+        .right{
+            height: 300px;
+            width: 220px;
+            background: bisque;
+        }
+
+</pre>
+
+<h2 id="三-实现三栏布局-左中两边固定，右边自适应"><a href="#三-实现三栏布局-左中两边固定，右边自适应" class="headerlink" title="三.实现三栏布局,左中两边固定，右边自适应"></a>三.实现三栏布局,左中两边固定，右边自适应</h2><p>css：</p>
+<pre>
+   contain
+       -left
+       -main
+       -right
+</pre>
+
+<p>1.双float加margin-left</p>
+<pre>
+
+.left{
+            float: left;
+            height: 300px;
+            width: 220px;
+            background: aqua;
+        }
+.right{
+            float: left;
+            height: 300px;
+            width: 220px;
+            background: bisque;
+        }
+.main{
+            margin-left: 440px;
+            height: 300px;
+            background: #a60000;
+        }
+</pre>
+
+<p>2.双position:absolute加margin-left</p>
+<pre>
+.left{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300px;
+    width: 220px;
+    background: aqua;
+   }
+.right{
+    position: absolute;
+    top: 0;
+    left: 220px;
+    height: 300px;
+    width: 220px;
+    background: bisque;
+  }
+.main{
+    margin-left: 440px;
+    height: 300px;
+    background: #a60000;}
+</pre>
+
+<p>3.双float加bfc</p>
+<pre>
+.left{
+    float: left;
+    height: 300px;
+    width: 220px;
+    background: aqua;
+}
+.right{
+    float: left;
+    height: 300px;
+    width: 220px;
+    background: bisque;
+}
+.main{
+    overflow: auto;
+    height: 300px;
+    background: #a60000;}
+
+</pre>
+
+<p>3.弹性布局</p>
+<pre>
+.container{
+         display: flex;
+        }
+.left{
+         height: 300px;
+         width: 220px;
+         background: aqua;
+        }
+.mian{
+         height: 300px;
+         width: 220px;
+         background: bisque;
+        }
+.right{
+         flex: 1;
+         background: #a60000;
+        }
+</pre>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/20/关于两栏和三栏的布局实现/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git上传本地项目以及更新" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

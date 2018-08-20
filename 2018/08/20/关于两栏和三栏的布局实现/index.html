@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//grimkiller.me">
-  <title>Archives: 2018 | 废物转运站</title>
+  <title>关于两栏和三栏的布局实现 | 废物转运站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="杭州电子科技大学15级。目前在前端的道路上探索~">
+  <meta name="description" content="一.实现两栏布局，左侧和右侧都占固定的百分比的宽度假设左边占30%，右边占70% 1.双float方法 .left{          float: left;          width: 30%;          height: 300px;          background: aqua; } .right{       float: left;       width: 70%;">
 <meta name="keywords" content="前端,js,jquery,html,css">
-<meta property="og:type" content="website">
-<meta property="og:title" content="废物转运站">
-<meta property="og:url" content="//grimkiller.me/archives/2018/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于两栏和三栏的布局实现">
+<meta property="og:url" content="//grimkiller.me/2018/08/20/关于两栏和三栏的布局实现/index.html">
 <meta property="og:site_name" content="废物转运站">
-<meta property="og:description" content="杭州电子科技大学15级。目前在前端的道路上探索~">
+<meta property="og:description" content="一.实现两栏布局，左侧和右侧都占固定的百分比的宽度假设左边占30%，右边占70% 1.双float方法 .left{          float: left;          width: 30%;          height: 300px;          background: aqua; } .right{       float: left;       width: 70%;">
 <meta property="og:locale" content="825694449@qq.com">
+<meta property="og:updated_time" content="2018-08-20T05:04:45.033Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="废物转运站">
-<meta name="twitter:description" content="杭州电子科技大学15级。目前在前端的道路上探索~">
+<meta name="twitter:title" content="关于两栏和三栏的布局实现">
+<meta name="twitter:description" content="一.实现两栏布局，左侧和右侧都占固定的百分比的宽度假设左边占30%，右边占70% 1.双float方法 .left{          float: left;          width: 30%;          height: 300px;          background: aqua; } .right{       float: left;       width: 70%;">
   
     <link rel="alternative" href="/atom.xml" title="废物转运站" type="application/atom+xml">
   
@@ -158,130 +159,496 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-关于两栏和三栏的布局实现" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      关于两栏和三栏的布局实现
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/20/关于两栏和三栏的布局实现/" class="archive-article-date">
+
+        
+        <a href="/2018/08/20/关于两栏和三栏的布局实现/" class="archive-article-date">
   	<time datetime="2018-08-20T02:38:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/20/关于两栏和三栏的布局实现/">关于两栏和三栏的布局实现</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-实现两栏布局，左侧和右侧都占固定的百分比的宽度"><a href="#一-实现两栏布局，左侧和右侧都占固定的百分比的宽度" class="headerlink" title="一.实现两栏布局，左侧和右侧都占固定的百分比的宽度"></a>一.实现两栏布局，左侧和右侧都占固定的百分比的宽度</h2><p>假设左边占30%，右边占70%<br></p>
+<p>1.双float方法</p>
+<pre>.left{
+         float: left;
+         width: 30%;
+         height: 300px;
+         background: aqua;
+}
+.right{
+      float: left;
+      width: 70%;
+      height: 300px;
+      background: bisque;
+}
+</pre>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>2.左边float，右边用position：relative</p>
+<pre> 
+.left{
+         float: left;
+         width: 30%;
+         height: 300px;
+         background: aqua;
+     }
+.right{
+         position: relative;
+         left: 30%;
+         width: 70%;
+         height: 300px;
+         background: bisque;
+     }
+</pre>
 
+<p>3.弹性布局</p>
+<pre>.container{//父元素要设置为flex属性
+         display: flex;
+     }
+.left{
+         flex: 3;
+         width: 30%;
+         height: 300px;
+         background: aqua;
+     }
+.right{
+         flex: 7;
+         width: 70%;
+         height: 300px;
+         background: bisque;
+     }
+</pre>
+
+<h2 id="二-实现两栏布局，一侧固定，一侧自适应宽度"><a href="#二-实现两栏布局，一侧固定，一侧自适应宽度" class="headerlink" title="二.实现两栏布局，一侧固定，一侧自适应宽度"></a>二.实现两栏布局，一侧固定，一侧自适应宽度</h2><p>假设左侧固定宽度300px，右侧自适应</p>
+<p>1.左侧float，右侧设置margin-left:300px</p>
+<pre>
+.left{
+         float:left;
+         width: 300px;
+         height: 300px;
+         background: aqua;
+        }
+.right{
+         margin-left: 300px;
+         height: 300px;
+         background: bisque;
+        }
+</pre>
+
+<p>2.左侧设置position：absolute，右侧自适应（跟上面方法差不多）</p>
+<pre>
+.left{
+         position:absolute;
+         width: 300px;
+         height: 300px;
+         background: aqua;
+        }
+.right{
+         margin-left: 300px;
+         height: 300px;
+         background: bisque;
+        }
+</pre>
+
+<p>3.双float</p>
+<pre>
+.left{
+         float: left;
+         height: 300px;
+         background: aqua;
+         width: 300px;
+
+        }
+.right{
+         float: left;   
+         width: calc(100% - 300px);
+         height: 300px;
+         background: bisque;
+        }
+</pre>
+
+<p>4.左侧float，右侧BFC</p>
+<pre>
+.left{
+          float: left;
+          width: 300px;
+          height: 300px;
+          background: aqua;
+       }
+.right{
+          overflow: auto;//触发BFC
+          height: 300px;
+          background: bisque;
+        }
+</pre>
+
+<p>5.弹性布局</p>
+<pre>
+.container{
+            display: flex;
+        }
+.left{
+            width: 300px;
+            height: 300px;
+            background: aqua;
+        }
+.right{
+            flex: 1;
+            height: 300px;
+            background: bisque;
+        }
+</pre>
+
+<p>4.采用inline-box</p>
+<pre>
+.container{
+           box-sizing: border-box;
+           font-size: 0;/*消除空格的影响*/
+       }
+.left,.right{
+            box-sizing: border-box;
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            background: aqua;
+            vertival-aligh:top;
+            //两个inline-block的盒子必须设置顶端对齐
+        }
+.right{
+
+            width: calc(100% - 300px) ;//动态计算宽度
+            background: bisque;
+        }
+</pre>
+
+<h2 id="三-实现三栏布局-左右两边固定，中间自适应"><a href="#三-实现三栏布局-左右两边固定，中间自适应" class="headerlink" title="三.实现三栏布局,左右两边固定，中间自适应"></a>三.实现三栏布局,左右两边固定，中间自适应</h2><p>左右固定，中间自适应</p>
+<p>ccs:<br>   <pre><br>     contain<br>           -mian//中间的必须先加载<br>           -left<br>           -right<br> </pre></p>
+<p>1.双飞翼布局</p>
+<pre>
+ .main{
+            float: left;
+            width: 100%;
+            height: 300px;
+            background: #a60000;
+
+        }
+.left{
+            float: left;
+            width: 220px;
+            height: 300px;
+            background: aqua;
+            margin-left: -100%;
+        }
+.right{
+            float: right;//或者right都行
+            width: 220px;
+            height: 300px;
+            background: bisque;
+            margin-left: -220px;
+        }
+</pre>
+
+<p>2.圣杯布局</p>
+<pre>
+.container{//正因为它比双飞翼多了这个 所以下面左右两个模块才要position为relative
+           padding: 0 220px;
+       }
+       .main{
+           float: left;
+           width: 100%;
+           height: 300px;
+           background: #a60000;
+
+       }
+.left{
+           float: left;
+           width: 220px;
+           height: 300px;
+           background: aqua;
+           margin-left: -100%;
+           position: relative;
+           left: -220px;
+       }
+.right{
+           float: left;
+           width: 220px;
+           height: 300px;
+           background: bisque;
+           position: relative;
+           margin-left: -220px;
+           left: 220px;
+       }
+</pre>
+
+<p>3.弹性布局</p>
+<p>css：</p>
+<pre>
+   contain
+       -left
+       -main
+       -right
+</pre>
+
+<p>style:</p>
+<pre>
+  .container{
+            display: flex;
+        }
+
+        .left{
+            height: 300px;
+            width: 220px;
+            background: aqua;
+        }
+        .main{
+            flex: 1;
+            height: 300px;
+            background: #a60000;
+        }
+        .right{
+            height: 300px;
+            width: 220px;
+            background: bisque;
+        }
+
+</pre>
+
+<h2 id="三-实现三栏布局-左中两边固定，右边自适应"><a href="#三-实现三栏布局-左中两边固定，右边自适应" class="headerlink" title="三.实现三栏布局,左中两边固定，右边自适应"></a>三.实现三栏布局,左中两边固定，右边自适应</h2><p>css：</p>
+<pre>
+   contain
+       -left
+       -main
+       -right
+</pre>
+
+<p>1.双float加margin-left</p>
+<pre>
+
+.left{
+            float: left;
+            height: 300px;
+            width: 220px;
+            background: aqua;
+        }
+.right{
+            float: left;
+            height: 300px;
+            width: 220px;
+            background: bisque;
+        }
+.main{
+            margin-left: 440px;
+            height: 300px;
+            background: #a60000;
+        }
+</pre>
+
+<p>2.双position:absolute加margin-left</p>
+<pre>
+.left{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300px;
+    width: 220px;
+    background: aqua;
+   }
+.right{
+    position: absolute;
+    top: 0;
+    left: 220px;
+    height: 300px;
+    width: 220px;
+    background: bisque;
+  }
+.main{
+    margin-left: 440px;
+    height: 300px;
+    background: #a60000;}
+</pre>
+
+<p>3.双float加bfc</p>
+<pre>
+.left{
+    float: left;
+    height: 300px;
+    width: 220px;
+    background: aqua;
+}
+.right{
+    float: left;
+    height: 300px;
+    width: 220px;
+    background: bisque;
+}
+.main{
+    overflow: auto;
+    height: 300px;
+    background: #a60000;}
+
+</pre>
+
+<p>3.弹性布局</p>
+<pre>
+.container{
+         display: flex;
+        }
+.left{
+         height: 300px;
+         width: 220px;
+         background: aqua;
+        }
+.mian{
+         height: 300px;
+         width: 220px;
+         background: bisque;
+        }
+.right{
+         flex: 1;
+         background: #a60000;
+        }
+</pre>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://grimkiller.me/2018/08/20/关于两栏和三栏的布局实现/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/19/git上传本地项目以及更新/" class="archive-article-date">
-  	<time datetime="2018-08-19T07:47:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/19/git上传本地项目以及更新/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git上传本地项目以及更新项目目</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/19/git上传本地项目以及更新/">git上传本地项目以及更新项目目</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/19/hexo和github构建个人博客/" class="archive-article-date">
-  	<time datetime="2018-08-19T06:05:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/19/hexo和github构建个人博客/">hexo和github构建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/19/webpack的安装/" class="archive-article-date">
-  	<time datetime="2018-08-19T03:23:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/19/webpack的安装/">webpack的安装</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -304,8 +671,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
