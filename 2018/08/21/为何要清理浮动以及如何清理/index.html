@@ -8,21 +8,18 @@
   <link rel="dns-prefetch" href="//grimkiller.me">
   <title>为何要清理浮动以及如何清理 | 废物转运站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、为何要清理浮动浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。  二、如何清理浮动其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。">
+  <meta name="description" content="一、为何要清理浮动浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。 二、如何清理浮动其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。">
 <meta name="keywords" content="前端,js,jquery,html,css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为何要清理浮动以及如何清理">
 <meta property="og:url" content="//grimkiller.me/2018/08/21/为何要清理浮动以及如何清理/index.html">
 <meta property="og:site_name" content="废物转运站">
-<meta property="og:description" content="一、为何要清理浮动浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。  二、如何清理浮动其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。">
+<meta property="og:description" content="一、为何要清理浮动浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。 二、如何清理浮动其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。">
 <meta property="og:locale" content="825694449@qq.com">
-<meta property="og:image" content="//grimkiller.me/2018/08/21/为何要清理浮动以及如何清理/pic/pic1.jpg">
-<meta property="og:image" content="//grimkiller.me/2018/08/21/为何要清理浮动以及如何清理/pic/pic2.jpg">
-<meta property="og:updated_time" content="2018-08-21T03:17:02.892Z">
+<meta property="og:updated_time" content="2018-08-21T03:24:29.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为何要清理浮动以及如何清理">
-<meta name="twitter:description" content="一、为何要清理浮动浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。  二、如何清理浮动其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。">
-<meta name="twitter:image" content="//grimkiller.me/2018/08/21/为何要清理浮动以及如何清理/pic/pic1.jpg">
+<meta name="twitter:description" content="一、为何要清理浮动浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。 二、如何清理浮动其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。">
   
     <link rel="alternative" href="/atom.xml" title="废物转运站" type="application/atom+xml">
   
@@ -183,10 +180,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、为何要清理浮动"><a href="#一、为何要清理浮动" class="headerlink" title="一、为何要清理浮动"></a>一、为何要清理浮动</h2><p>浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。</p>
-<p><img src="pic/pic1.jpg" alt=""></p>
 <h2 id="二、如何清理浮动"><a href="#二、如何清理浮动" class="headerlink" title="二、如何清理浮动"></a>二、如何清理浮动</h2><p>其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。</p>
-<p><img src="pic/pic2.jpg" alt=""></p>
-<p>清除浮动的方法大致上有以下两种。</p>
+<pre><code>.footer{
+    clear:both;
+  }
+
+&lt;div class=&quot;warp&quot; id=&quot;float1&quot;&gt;
+  &lt;div class=&quot;main left&quot;&gt;.main{float:left;}&lt;/div&gt;
+  &lt;div class=&quot;side left&quot;&gt;.side{float:right;}&lt;/div&gt;
+&lt;/div&gt;
+  &lt;div class=&quot;footer&quot;&gt;.footer&lt;/div&gt;
+</code></pre><p><strong>清除浮动的方法大致上有以下两种</strong></p>
 <p>1.在浮动元素后添加一个空元素或者伪元素：</p>
 <pre><code>&lt;div class=&quot;warp&quot; id=&quot;float1&quot;&gt;
   &lt;div class=&quot;main left&quot;&gt;.main{float:left;}&lt;/div&gt;
@@ -234,7 +238,8 @@ position: absolute
 display: inline-block
 //块级元素的触发 
 width/height: (除auto外)
-</code></pre>
+</code></pre><p>参考：<br><br><a href="https://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/" target="_blank" rel="noopener">CSS深入理解流体特性和BFC特性下多栏自适应布局</a><br><br><br><a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="noopener">那些年我们一起清理过的浮动</a><br><br><br><a href="https://www.cnblogs.com/xinghh/p/3501937.html?utm_source=tuicool" target="_blank" rel="noopener">关于haslayout和BFC</a></p>
+
       
 
       
