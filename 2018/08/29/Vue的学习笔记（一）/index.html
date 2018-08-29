@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//grimkiller.me">
-  <title>为何要清理浮动以及如何清理 | 废物转运站</title>
+  <title>Vue的学习笔记（一） | 废物转运站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、为何要清理浮动浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。 二、如何清理浮动其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。">
+  <meta name="description" content="一.vue中对dom元素的绑定 v-bind：将dom元素的某个属性与 Vue 实例的某个属性保持关联更新   &amp;lt;div id=&amp;quot;app-2&amp;quot;&amp;gt; &amp;lt;span v-bind:title=&amp;quot;message&amp;quot;&amp;gt;  鼠标悬停此处几秒，  可以看到此处动态绑定的 title！  &amp;lt;/span&amp;gt;  &amp;lt;/div&amp;gt;   var">
 <meta name="keywords" content="前端,js,jquery,html,css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为何要清理浮动以及如何清理">
-<meta property="og:url" content="//grimkiller.me/2018/08/21/为何要清理浮动以及如何清理/index.html">
+<meta property="og:title" content="Vue的学习笔记（一）">
+<meta property="og:url" content="//grimkiller.me/2018/08/29/Vue的学习笔记（一）/index.html">
 <meta property="og:site_name" content="废物转运站">
-<meta property="og:description" content="一、为何要清理浮动浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。 二、如何清理浮动其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。">
+<meta property="og:description" content="一.vue中对dom元素的绑定 v-bind：将dom元素的某个属性与 Vue 实例的某个属性保持关联更新   &amp;lt;div id=&amp;quot;app-2&amp;quot;&amp;gt; &amp;lt;span v-bind:title=&amp;quot;message&amp;quot;&amp;gt;  鼠标悬停此处几秒，  可以看到此处动态绑定的 title！  &amp;lt;/span&amp;gt;  &amp;lt;/div&amp;gt;   var">
 <meta property="og:locale" content="825694449@qq.com">
-<meta property="og:updated_time" content="2018-08-21T03:24:29.071Z">
+<meta property="og:updated_time" content="2018-08-29T08:38:36.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为何要清理浮动以及如何清理">
-<meta name="twitter:description" content="一、为何要清理浮动浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。 二、如何清理浮动其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。">
+<meta name="twitter:title" content="Vue的学习笔记（一）">
+<meta name="twitter:description" content="一.vue中对dom元素的绑定 v-bind：将dom元素的某个属性与 Vue 实例的某个属性保持关联更新   &amp;lt;div id=&amp;quot;app-2&amp;quot;&amp;gt; &amp;lt;span v-bind:title=&amp;quot;message&amp;quot;&amp;gt;  鼠标悬停此处几秒，  可以看到此处动态绑定的 title！  &amp;lt;/span&amp;gt;  &amp;lt;/div&amp;gt;   var">
   
     <link rel="alternative" href="/atom.xml" title="废物转运站" type="application/atom+xml">
   
@@ -159,86 +159,143 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-为何要清理浮动以及如何清理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Vue的学习笔记（一）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      为何要清理浮动以及如何清理
+      Vue的学习笔记（一）
     </h1>
   
 
         
-        <a href="/2018/08/21/为何要清理浮动以及如何清理/" class="archive-article-date">
-  	<time datetime="2018-08-21T02:09:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-21</time>
+        <a href="/2018/08/29/Vue的学习笔记（一）/" class="archive-article-date">
+  	<time datetime="2018-08-29T07:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、为何要清理浮动"><a href="#一、为何要清理浮动" class="headerlink" title="一、为何要清理浮动"></a>一、为何要清理浮动</h2><p>浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。</p>
-<h2 id="二、如何清理浮动"><a href="#二、如何清理浮动" class="headerlink" title="二、如何清理浮动"></a>二、如何清理浮动</h2><p>其实相对于叫清理浮动，叫闭合浮动更正确，因为有时候单单用清理浮动解决不了问题，比如下面在footer上设置clear：both并不能解决清理浮动的问题。</p>
-<pre><code>.footer{
-    clear:both;
+        <h2 id="一-vue中对dom元素的绑定"><a href="#一-vue中对dom元素的绑定" class="headerlink" title="一.vue中对dom元素的绑定"></a>一.vue中对dom元素的绑定</h2><p> v-bind：将dom元素的某个属性与 Vue 实例的某个属性保持关联更新</p>
+<pre><code>  &lt;div id=&quot;app-2&quot;&gt;
+&lt;span v-bind:title=&quot;message&quot;&gt;
+ 鼠标悬停此处几秒，
+ 可以看到此处动态绑定的 title！
+ &lt;/span&gt;
+ &lt;/div&gt;
+
+ var app = new Vue({
+   el: &apos;#app-2&apos;,
+   data: {
+   message: &apos;页面加载于 &apos; + new Date().toLocaleString()
+ }
+ })
+</code></pre><p> </p>
+<p> v-model:表单输入和应用程序状态之间的双向绑定</p>
+<pre><code>&lt;div id=&quot;app-6&quot;&gt;
+&lt;p&gt;{{ message }}&lt;/p&gt;
+ &lt;input v-model=&quot;message&quot;&gt;
+&lt;/div&gt;
+
+var app = new Vue({
+ el: &apos;#app-6&apos;,
+ data: {
+message: &apos;Hello Vue!&apos;
+ }
+ })
+</code></pre><p></p>
+<p>v-on/@:事件的监听</p>
+<pre><code>&lt;button v-on:click=&quot;handleBtnClick&quot;&gt;提交&lt;/button&gt;
+</code></pre><p>v-for:可以将数据绑定到dom结构中，例如可以使用数组中的数据来展示一个项目列表</p>
+<pre><code>&lt;li v-for=&quot;item in list&quot;&gt;{{ item }}&lt;/li&gt;
+</code></pre><p>v-if：可以控制dom元素的显示</p>
+<pre><code>&lt;div id=&quot;app-3&quot;&gt;
+   &lt;span v-if=&quot;seen&quot;&gt;现在你可以看到我&lt;/span&gt;
+&lt;/div&gt;
+
+   var app = new Vue({
+   el: &apos;#app-3&apos;,
+   data: {
+   seen: true
+    }
+})
+</code></pre><h2 id="二-前端组件化"><a href="#二-前端组件化" class="headerlink" title="二.前端组件化"></a>二.前端组件化</h2><p> 1.定义子组件</p>
+<p>   全局下定义：</p>
+<pre><code> // 定义一个被命名为 todo-item 的新组件
+Vue.component(&apos;todo-item&apos;, {
+ template: &apos;&lt;li&gt;这是一个 todo 项&lt;/li&gt;&apos;
+})
+
+在另一个模板中使用：
+&lt;ol&gt;
+&lt;!-- 创建一个 todo-item 组件的实例 --&gt;
+&lt;todo-item&gt;&lt;/todo-item&gt;
+&lt;/ol&gt;
+</code></pre><p>  局部组件定义：</p>
+<pre><code>var TodoItem={
+   template：&apos;&lt;li&gt;这是一个 todo 项&lt;/li&gt;&apos;
+ }
+
+需要在全局中注册该组件：
+ var app = new Vue({
+  el:&apos;#app&apos;,
+  components:{
+      TodoItem:TodoItem
+  },
+  data={}
+})
+
+注册后在另一个模板中使用：
+ &lt;ol&gt;
+ &lt;!-- 创建一个 todo-item 组件的实例 --&gt;
+ &lt;todo-item&gt;&lt;/todo-item&gt;
+ &lt;/ol&gt;
+</code></pre><p>2.父子组件之间的参数传递</p>
+<p>   父传子：</p>
+<pre><code> 采用v-bind绑定参数：
+&lt;todo-item v-bind:content=&quot;item&quot; v-bind:index=&apos;index&apos; 
+ v-for=&quot;(item,index) in list&quot; &gt;&lt;/todo-item&gt;
+
+ 然后在子组件中获得参数：
+   var TodoItem={
+    props:[&apos;content&apos;,&apos;index&apos;],//获得参数
+    template：&apos;&lt;li&gt;{{content}}{{index}}&lt;/li&gt;&apos;
   }
+</code></pre><p>   子传父：</p>
+<pre><code>   采用emit触发某个事件：
+   var TodoItem={//局部组件
+    props:[&apos;content&apos;,&apos;index&apos;],
+    template:&apos;&lt;li @click=&quot;handleItemClick&quot;&gt;{{ content }}&lt;/li&gt;&apos;,//组件模板
+    methods:{
+        handleItemClick:function () {
+            this.$emit(&apos;delete&apos;,this.index)
+        }
+    }
+}
 
-&lt;div class=&quot;warp&quot; id=&quot;float1&quot;&gt;
-  &lt;div class=&quot;main left&quot;&gt;.main{float:left;}&lt;/div&gt;
-  &lt;div class=&quot;side left&quot;&gt;.side{float:right;}&lt;/div&gt;
-&lt;/div&gt;
-  &lt;div class=&quot;footer&quot;&gt;.footer&lt;/div&gt;
-</code></pre><p><strong>清除浮动的方法大致上有以下两种</strong></p>
-<p>1.在浮动元素后添加一个空元素或者伪元素：</p>
-<pre><code>&lt;div class=&quot;warp&quot; id=&quot;float1&quot;&gt;
-  &lt;div class=&quot;main left&quot;&gt;.main{float:left;}&lt;/div&gt;
-  &lt;div class=&quot;side left&quot;&gt;.side{float:right;}&lt;/div&gt;
-  &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;//空元素设置内联样式clear:both
-&lt;/div&gt;
-  &lt;div class=&quot;footer&quot;&gt;.footer&lt;/div&gt;
-</code></pre><p>  </p>
-<pre><code>&lt;div class=&quot;clearfix&quot; id=&quot;float1&quot;&gt;
-  &lt;div class=&quot;main left&quot;&gt;.main{float:left;}&lt;/div&gt;
-  &lt;div class=&quot;side left&quot;&gt;.side{float:right;}&lt;/div&gt;
-&lt;/div&gt;
-  &lt;div class=&quot;footer&quot;&gt;.footer&lt;/div&gt;
+    在父组件上监听该事件的触发：
+  &lt;todo-item v-bind:content=&quot;item&quot; v-bind:index=&apos;index&apos;
+ v-for=&quot;(item,index) in list&quot; @delete=&quot;handleItemDelete&quot;&gt;&lt;/todo-item&gt;
 
-.clearfix:after {content:&quot;.&quot;; display:block; height:0; visibility:hidden; clear:both; }
-.clearfix { *zoom:1; }
-</code></pre><p>2.触发hasLayout或者BFC(闭合浮动)：</p>
-<pre><code>设置父元素属性为overflow:hidden/auto 或者display：table/inline-block 
-其中display：inline-block可以同时触发hasLayout和BFC
-</code></pre><blockquote>
-<p>在支持BFC的浏览器（IE8+，firefox，chrome，safari）通过创建新的BFC闭合浮动；<br>在不支持 BFC的浏览器 （IE6-7），通过触发 hasLayout 闭合浮动</p>
-</blockquote>
-<h2 id="三、关于BFC和haslayout"><a href="#三、关于BFC和haslayout" class="headerlink" title="三、关于BFC和haslayout"></a>三、关于BFC和haslayout</h2><pre><code>BFC：全称”Block Formatting Context”, 块级格式化上下文
-BFC就是一个不让内部元素与外界相互影响，包容浮动子元素，并自身和外界的浮动盒子不重叠的盒子
-
-hasLayout与BFC表现差不多,但hasLayout是ie6-7专属的
-</code></pre><blockquote>
-<p> BFC除了清除浮动之外还有以下作用：</p>
-</blockquote>
-<p>1.阻止外边距叠加<br><br>2.阻止浮动框叠加<br><br>3.自适应布局（比如和float搭配）</p>
-<blockquote>
-<p>怎么触发BFC?</p>
-</blockquote>
-<pre><code>float:（非空）
-overflow: (非visible）
-position: (absolute/fixed)
-display: (inline-block)
-</code></pre><blockquote>
-<p>怎么触发haslayout？</p>
-</blockquote>
-<pre><code>// 对以下属性设值可触发haslayout
-zoom: (除 normal 外)
-float: (非空) 
-position: absolute
-display: inline-block
-//块级元素的触发 
-width/height: (除auto外)
-</code></pre><p>参考：<br><br><a href="https://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/" target="_blank" rel="noopener">CSS深入理解流体特性和BFC特性下多栏自适应布局</a><br><br><br><a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="noopener">那些年我们一起清理过的浮动</a><br><br><br><a href="https://www.cnblogs.com/xinghh/p/3501937.html?utm_source=tuicool" target="_blank" rel="noopener">关于haslayout和BFC</a></p>
+    在父组件里注册该事件触发的事件：
+    var app = new Vue({
+    el:&apos;#app&apos;,
+    components:{
+        TodoItem:TodoItem
+    },
+    data:{
+        ...
+    },
+    methods:{
+      handleItemDelete:function (index) {
+            ...
+      }
+   })
+</code></pre><h2 id="三-mvvm与mvp框架"><a href="#三-mvvm与mvp框架" class="headerlink" title="三.mvvm与mvp框架"></a>三.mvvm与mvp框架</h2><p>  mvvm更注重数据视图的双向绑定<br>  而mvp则注重逻辑的部分，视图部分则是被动的</p>
+<p>  <a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="noopener">MVC，MVP 和 MVVM 的图示</a></p>
 
       
 
@@ -318,7 +375,7 @@ width/height: (除auto外)
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://grimkiller.me/2018/08/21/为何要清理浮动以及如何清理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://grimkiller.me/2018/08/29/Vue的学习笔记（一）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -332,18 +389,9 @@ width/height: (除auto外)
   
 <nav id="article-nav">
   
-    <a href="/2018/08/29/Vue的学习笔记（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Vue的学习笔记（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/20/关于两栏和三栏的布局实现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于两栏和三栏的布局实现</div>
+    <a href="/2018/08/21/为何要清理浮动以及如何清理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">为何要清理浮动以及如何清理</div>
       <i class="icon-circle-right"></i>
     </a>
   
