@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="废物转运站">
 <meta property="og:description" content="一.vue中对dom元素的绑定 v-bind：将dom元素的某个属性与 Vue 实例的某个属性保持关联更新   &amp;lt;div id=&amp;quot;app-2&amp;quot;&amp;gt; &amp;lt;span v-bind:title=&amp;quot;message&amp;quot;&amp;gt;  鼠标悬停此处几秒，  可以看到此处动态绑定的 title！  &amp;lt;/span&amp;gt;  &amp;lt;/div&amp;gt;   var">
 <meta property="og:locale" content="825694449@qq.com">
-<meta property="og:updated_time" content="2018-08-29T08:38:36.750Z">
+<meta property="og:updated_time" content="2018-08-30T08:57:54.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue的学习笔记（一）">
 <meta name="twitter:description" content="一.vue中对dom元素的绑定 v-bind：将dom元素的某个属性与 Vue 实例的某个属性保持关联更新   &amp;lt;div id=&amp;quot;app-2&amp;quot;&amp;gt; &amp;lt;span v-bind:title=&amp;quot;message&amp;quot;&amp;gt;  鼠标悬停此处几秒，  可以看到此处动态绑定的 title！  &amp;lt;/span&amp;gt;  &amp;lt;/div&amp;gt;   var">
@@ -264,7 +264,8 @@ Vue.component(&apos;todo-item&apos;, {
     props:[&apos;content&apos;,&apos;index&apos;],//获得参数
     template：&apos;&lt;li&gt;{{content}}{{index}}&lt;/li&gt;&apos;
   }
-</code></pre><p>   子传父：</p>
+</code></pre><p>   但是子组件不能直接修改父组件的参数，因为该参数可能由父组件也传给了其他子组件，如果一个子组件修改了，会影响到其他子组件<br>   <br><br>   解决方法：<br>    可以在子组件里克隆一个副本，对这个副本进行操作<br>   <br></p>
+<p>   子传父：</p>
 <pre><code>   采用emit触发某个事件：
    var TodoItem={//局部组件
     props:[&apos;content&apos;,&apos;index&apos;],
@@ -294,7 +295,44 @@ Vue.component(&apos;todo-item&apos;, {
             ...
       }
    })
-</code></pre><h2 id="三-mvvm与mvp框架"><a href="#三-mvvm与mvp框架" class="headerlink" title="三.mvvm与mvp框架"></a>三.mvvm与mvp框架</h2><p>  mvvm更注重数据视图的双向绑定<br>  而mvp则注重逻辑的部分，视图部分则是被动的</p>
+</code></pre><p> 3.非父子组件直接怎么传递参数</p>
+<p> 使用bus总线的方法：</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;child content=&quot;Dell&quot;&gt;&lt;/child&gt;
+  &lt;child content=&quot;Lee&quot;&gt;&lt;/child&gt;
+&lt;/div&gt;
+&lt;script&gt;
+Vue.prototype.bus = new Vue();//给vue的原型上绑定bus
+Vue.component(&apos;child&apos;,{
+     props:{
+      content:String
+    },
+     data:function{
+      return {
+          selfContent:this.content
+            }
+    },
+    template:&apos;&lt;div @click=&quot;handleClick&quot;&gt;{{ selfContent }}&lt;/div&gt;&apos;,
+    methods:{
+        handleClick:function () {
+            this.bus.$emit(&apos;change&apos;,this.selfContent)//在总线上触发change事件，传递参数
+        },
+    } ,
+    mounted:function () {//生命周期函数,被挂载之前执行
+        var that = this;//为了不使作用域发生变化，要保留作用域
+        this.bus.$on(&apos;change&apos;,function (msg) {//监听change事件，msg就是被传递的参数
+            that.selfContent = msg
+        })
+    }
+
+
+})
+var vm = new Vue({
+    el: &apos;#app&apos;,
+    data: {}
+})
+</code></pre><p></p>
+<h2 id="三-mvvm与mvp框架"><a href="#三-mvvm与mvp框架" class="headerlink" title="三.mvvm与mvp框架"></a>三.mvvm与mvp框架</h2><p>  mvvm更注重数据视图的双向绑定<br>  而mvp则注重逻辑的部分，视图部分则是被动的</p>
 <p>  <a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="noopener">MVC，MVP 和 MVVM 的图示</a></p>
 
       
