@@ -160,6 +160,200 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hexo和github构建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/19/hexo和github构建个人博客/">hexo和github构建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/19/hexo和github构建个人博客/" class="archive-article-date">
+  	<time datetime="2018-08-19T06:05:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-准备工作"><a href="#一-准备工作" class="headerlink" title="一.准备工作"></a>一.准备工作<br></h2><h3 id="1-git的ssh的配置-我刚开始没配置后面出了好多问题）"><a href="#1-git的ssh的配置-我刚开始没配置后面出了好多问题）" class="headerlink" title="1.git的ssh的配置(我刚开始没配置后面出了好多问题）"></a>1.git的ssh的配置(我刚开始没配置后面出了好多问题）<br></h3><blockquote>
+<p>先查看自己电脑中的~/.ssh目录</p>
+</blockquote>
+<pre>$ cd ~/.ssh 
+$ ls</pre>
+
+<p><code>发现目录空白</code><br></p>
+<blockquote>
+<p>创建ssh</p>
+</blockquote>
+<pre>$ ssh-keygen -t rsa -C "your_email@youremail.com"</pre>
+
+<blockquote>
+<p>一路enter后出现</p>
+</blockquote>
+<pre>Your identification has been saved in /home/you/.ssh/id_rsa. 
+Your public key has been saved in /home/you/.ssh/id_rsa.pub. 
+The key fingerprint is: #01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@youremail.com</pre>
+
+<blockquote>
+<p>查看生成的公钥</p>
+</blockquote>
+<pre>$ cat ~/.ssh/id_rsa.pub </pre>  
+
+<blockquote>
+<p>在github账户上添加key</p>
+</blockquote>
+<pre>登陆你的github帐户。然后Account Settings->左栏点击SSH Keys 
+点击 Add SSH key。
+然后你复制上面的公钥内容，粘贴进“Key”文本域内。
+ title域，你随便填一个都行。点击 Add key。</pre>
+
+<blockquote>
+<p>查看是否设置成功</p>
+</blockquote>
+<pre>$ ssh -T git@github.com</pre>
+   <pre>//成功结果显示看到
+   Hi username! You've successfully authenticated, but GitHub does not # provide shell access.</pre>
+
+<blockquote>
+<p>修改本地的ssh remote url.不用https协议，改用git协议<br><br> 查看当前的remote url<br></p>
+</blockquote>
+<pre>$ git remote -v<br></pre>
+
+<blockquote>
+<p>如果看到是https协议，改成ssh协议（从github仓库上可以看到）：</p>
+</blockquote>
+<pre>origin https://github.com/someaccount/someproject.git (fetch)
+origin https://github.com/someaccount/someproject.git (push)</pre>
+<pre>$ git remote rm origin</pre>
+<pre>$ git remote add origin git@github.com:someaccount/someproject.git</pre>
+
+<blockquote>
+<p>设置完再用remote url查看是否设置成功</p>
+</blockquote>
+<h3 id="2-node-js和文档编辑器Markdown下载"><a href="#2-node-js和文档编辑器Markdown下载" class="headerlink" title="2.node.js和文档编辑器Markdown下载"></a>2.node.js和文档编辑器Markdown下载</h3><h2 id="二-开始搭建"><a href="#二-开始搭建" class="headerlink" title="二.开始搭建"></a>二.开始搭建</h2><blockquote>
+<p>创建文件夹blog<br><br> 在文件夹中使用git bash输入指令(以下的npm均用cnpm代替)：</p>
+</blockquote>
+<pre>//全局安装hexo<br>$ npm install -g hexo-cli</pre>
+  <pre>//更新hexo至最新<br>$ npm update hexo -g</pre>
+
+<blockquote>
+<p>在指定文件中新建所需要的文件</p>
+</blockquote>
+<pre>//初始化文件夹
+$ hexo init blog
+//打开文件夹
+$ cd blog
+//安装
+$ npm install
+//生成静态页面
+$ hexo generate
+//启动服务
+$ hexo server</pre>
+<pre>//打印信息如下表示服务启动成功
+//其中的http://localhost:4000/可以在本地查看效果
+$ hexo server
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
+</pre>
+
+<blockquote>
+<p>hexo配置（_config.yml 文件)</p>
+</blockquote>
+<pre>//乱码的话可以用notepad++转换为utf-8编码
+title              网站标题
+subtitle           网站副标题
+description        网站描述
+author             您的名字
+language           网站使用的语言
+timezone           网站时区。Hexo 默认使用您电脑的时区
+</pre>
+
+<h2 id="三-将hexo博客部署在github上"><a href="#三-将hexo博客部署在github上" class="headerlink" title="三.将hexo博客部署在github上"></a>三.将hexo博客部署在github上</h2><blockquote>
+<p>先在github上创建新仓库<br> <strong>该仓库名称必须是：你的 Github 名称.github.io</strong></p>
+</blockquote>
+<pre>//配置_config.yml文件
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: git@github.com:你的github名字/你的github名字.github.io.git
+  branch: master
+  message</pre>
+
+<blockquote>
+<p>接着安装hexo-deployer-git</p>
+</blockquote>
+<pre>//安装
+$ npm install hexo-deployer-git --save
+//部署
+$ hexo deploy
+//重新部署
+$ hexo clean
+$ hexo generate
+$ hexo deploy
+//将更新的配置信息上传到git
+$ git pull
+</pre>
+
+<h2 id="四-博客主题更改"><a href="#四-博客主题更改" class="headerlink" title="四.博客主题更改"></a>四.博客主题更改</h2><blockquote>
+<p>下载</p>
+</blockquote>
+<pre>$ git clone https://github.com/litten/hexo-theme-yilia.git themes/xxx</pre>
+
+<blockquote>
+<p>修改_config.yml文件中的themes为主题名称<br> 在主目录进入themes中：</p>
+</blockquote>
+<pre>$ cd themes/xxx
+$ git pull</pre>
+
+<p>参考博客：<br><br><a href="https://www.cnblogs.com/z-x-y/p/8284504.html" target="_blank" rel="noopener">git设置ssh以及好处</a><br><br><a href="https://www.cnblogs.com/wumz/p/8030244.html" target="_blank" rel="noopener">使用node.js+hexo+github搭建博客</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/19/hexo和github构建个人博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-webpack的安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
