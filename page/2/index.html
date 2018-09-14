@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//grimkiller.me">
-  <title>vue的学习笔记（三） | 废物转运站</title>
+  <title>废物转运站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一.关于组件的细节点1.浏览器中出现的bug： &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;table&amp;gt;     &amp;lt;tbody&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;     &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;">
+  <meta name="description" content="杭州电子科技大学15级。目前在前端的道路上探索~">
 <meta name="keywords" content="前端,js,jquery,html,css">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vue的学习笔记（三）">
-<meta property="og:url" content="//grimkiller.me/2018/08/30/vue的学习笔记（三）/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="废物转运站">
+<meta property="og:url" content="//grimkiller.me/page/2/index.html">
 <meta property="og:site_name" content="废物转运站">
-<meta property="og:description" content="一.关于组件的细节点1.浏览器中出现的bug： &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;table&amp;gt;     &amp;lt;tbody&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;     &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;">
+<meta property="og:description" content="杭州电子科技大学15级。目前在前端的道路上探索~">
 <meta property="og:locale" content="825694449@qq.com">
-<meta property="og:updated_time" content="2018-08-30T05:54:45.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue的学习笔记（三）">
-<meta name="twitter:description" content="一.关于组件的细节点1.浏览器中出现的bug： &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;table&amp;gt;     &amp;lt;tbody&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;     &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;">
+<meta name="twitter:title" content="废物转运站">
+<meta name="twitter:description" content="杭州电子科技大学15级。目前在前端的道路上探索~">
   
     <link rel="alternative" href="/atom.xml" title="废物转运站" type="application/atom+xml">
   
@@ -159,139 +158,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="“-vue的学习笔记（三）" class="article article-type-“ " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-webpack的安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      vue的学习笔记（三）
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/19/webpack的安装/">webpack的安装</a>
     </h1>
   
 
         
-        <a href="/2018/08/30/vue的学习笔记（三）/" class="archive-article-date">
-  	<time datetime="2018-08-30T05:29:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-30</time>
+        <a href="/2018/08/19/webpack的安装/" class="archive-article-date">
+  	<time datetime="2018-08-19T03:23:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-关于组件的细节点"><a href="#一-关于组件的细节点" class="headerlink" title="一.关于组件的细节点"></a>一.关于组件的细节点</h2><p>1.浏览器中出现的bug：</p>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-&lt;table&gt;
-    &lt;tbody&gt;
-       &lt;row&gt;&lt;/row&gt;
-       &lt;row&gt;&lt;/row&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;script&gt;
-Vue.component(&apos;row&apos;,{
-    data:function () {
-        return{
-            content:&apos;this is content&apos;
-        }
-    },
-    template:&quot;&lt;tr&gt;&lt;td&gt;{{content}}&lt;/td&gt;&lt;/tr&gt;&quot;
-})
-var vm = new Vue({
-    el: &apos;#app&apos;,
-    data: {}
-})
-&lt;/script&gt;
-</code></pre><p>console控制台中可以看到出现的bug：<br>    row被解析在table结构上面</p>
-<p>解决方法：<br>用is属性</p>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-&lt;table&gt;
-    &lt;tbody&gt;
-       &lt;tr is=&quot;row&quot;&gt;&lt;/tr&gt;
-       &lt;tr is=&quot;row&quot;&gt;&lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-</code></pre><p>类似的问题会在table/select/ul等结构体出现，都可以使用这种方法解决</p>
-<p>2.子组件中的data</p>
-<p>子组件中的data必须是以函数返回对象的形式而不能直接使用对象的形式<br><br><br>因为这是为了避免多个子组件共享数据</p>
-<p>3.关于ref的用法</p>
-<p>  在某些情况下不能避免要获取dom进行操作，我们可以使用ref方法：</p>
-<pre><code> &lt;div id=&quot;app&quot;&gt;
-    &lt;div ref=&quot;say&quot; @click=&quot;handleHtml&quot;&gt;hello world&lt;/div&gt;
- &lt;/div&gt;
-
- &lt;script&gt;
-   var vm = new Vue({
-    el: &apos;#app&apos;,
-    data: {
-    },
-    methods:{
-        handleHtml:function () {
-            alert( this.$refs.say.innerHTML)
-        }
-    }
-  })
-&lt;/script&gt;
-</code></pre><p> ref方法不仅可以获得dom元素，还可以获得子组件：</p>
-<pre><code> //两数求和的例子
- &lt;div id=&quot;app&quot;&gt;
-   &lt;row ref=&apos;first&apos; @change=&quot;handleChange&quot;&gt;&lt;/row&gt;
-   &lt;row ref=&apos;second&apos; @change=&quot;handleChange&quot;&gt;&lt;/row&gt;
-   &lt;div&gt;{{total}}&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-Vue.component(&apos;row&apos;,{
-    data:function () {
-        return{
-            number:0
-        }
-    },
-    template:&quot;&lt;div @click=&apos;handleAdd&apos;&gt;{{number}}&lt;/div&gt;&quot;,
-    methods:{
-        handleAdd:function () {
-            this.number++
-            this.$emit(&apos;change&apos;)
-        }
-    }
-})
-var vm = new Vue({
-    el: &apos;#app&apos;,
-    data: {
-        total:0
-    },
-    methods:{
-        handleChange:function () {
-            console.log(this.$refs.first.number)
-            console.log(this.$refs.second.number)
-            this.total=this.$refs.first.number+this.$refs.second.number
-        }
-    }
-})
+        <p>1.从官网下载node.js,使用npm安装webpack </p>
+<p>  为了不被墙，使用淘宝的npm镜像：</p>
+<pre><code>//接下来的步骤都由cnpm代替npm指令
+npm install -g cnpm -registry=http://registry.npm.taobao.org 
 </code></pre>
-      
+
+<p> 2.安装webpack</p>
+ <pre><code>//全局安装
+npm install -g webpack
+//安装到你的项目目录
+npm install --save-dev webpack
+</code></pre>
+
+<p> 3.提示没有安装cli(我出现的情况)，安装cli：</p>
+<pre><code>npm install webpack-cli -g</code></pre>
+
+<p>4.安装好后查看webpack版本：</p>
+<pre>webpack -v</pre>
+
+<p>如果能看到版本号的话，到这里已经安装好啦！</p>
 
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
+
       
     </div>
     <div class="article-info article-info-index">
@@ -300,84 +211,16 @@ var vm = new Vue({
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/19/webpack的安装/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://grimkiller.me/2018/08/30/vue的学习笔记（三）/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/09/14/css中的垂直居中方式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          css中的垂直居中方式
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/08/29/vue的学习笔记（二）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue的学习笔记（二）</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -397,14 +240,12 @@ var vm = new Vue({
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -427,8 +268,8 @@ var vm = new Vue({
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

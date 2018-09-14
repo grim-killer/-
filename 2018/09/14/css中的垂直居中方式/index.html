@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//grimkiller.me">
-  <title>vue的学习笔记（三） | 废物转运站</title>
+  <title>css中的垂直居中方式 | 废物转运站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一.关于组件的细节点1.浏览器中出现的bug： &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;table&amp;gt;     &amp;lt;tbody&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;     &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;">
+  <meta name="description" content="块级元素的居中css：          &amp;lt;div id=&amp;quot;wrapper&amp;quot;&amp;gt;          &amp;lt;div id=&amp;quot;div&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;      &amp;lt;/div&amp;gt;1/2.position定位方式 &amp;lt;style&amp;gt;     #wrapper{         width: 500px;">
 <meta name="keywords" content="前端,js,jquery,html,css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue的学习笔记（三）">
-<meta property="og:url" content="//grimkiller.me/2018/08/30/vue的学习笔记（三）/index.html">
+<meta property="og:title" content="css中的垂直居中方式">
+<meta property="og:url" content="//grimkiller.me/2018/09/14/css中的垂直居中方式/index.html">
 <meta property="og:site_name" content="废物转运站">
-<meta property="og:description" content="一.关于组件的细节点1.浏览器中出现的bug： &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;table&amp;gt;     &amp;lt;tbody&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;     &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;">
+<meta property="og:description" content="块级元素的居中css：          &amp;lt;div id=&amp;quot;wrapper&amp;quot;&amp;gt;          &amp;lt;div id=&amp;quot;div&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;      &amp;lt;/div&amp;gt;1/2.position定位方式 &amp;lt;style&amp;gt;     #wrapper{         width: 500px;">
 <meta property="og:locale" content="825694449@qq.com">
-<meta property="og:updated_time" content="2018-08-30T05:54:45.377Z">
+<meta property="og:updated_time" content="2018-09-14T08:57:53.372Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue的学习笔记（三）">
-<meta name="twitter:description" content="一.关于组件的细节点1.浏览器中出现的bug： &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;table&amp;gt;     &amp;lt;tbody&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;        &amp;lt;row&amp;gt;&amp;lt;/row&amp;gt;     &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;">
+<meta name="twitter:title" content="css中的垂直居中方式">
+<meta name="twitter:description" content="块级元素的居中css：          &amp;lt;div id=&amp;quot;wrapper&amp;quot;&amp;gt;          &amp;lt;div id=&amp;quot;div&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;      &amp;lt;/div&amp;gt;1/2.position定位方式 &amp;lt;style&amp;gt;     #wrapper{         width: 500px;">
   
     <link rel="alternative" href="/atom.xml" title="废物转运站" type="application/atom+xml">
   
@@ -159,115 +159,144 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="“-vue的学习笔记（三）" class="article article-type-“ " itemscope itemprop="blogPost">
+            <article id="post-css中的垂直居中方式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vue的学习笔记（三）
+      css中的垂直居中方式
     </h1>
   
 
         
-        <a href="/2018/08/30/vue的学习笔记（三）/" class="archive-article-date">
-  	<time datetime="2018-08-30T05:29:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-30</time>
+        <a href="/2018/09/14/css中的垂直居中方式/" class="archive-article-date">
+  	<time datetime="2018-09-14T08:20:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-关于组件的细节点"><a href="#一-关于组件的细节点" class="headerlink" title="一.关于组件的细节点"></a>一.关于组件的细节点</h2><p>1.浏览器中出现的bug：</p>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-&lt;table&gt;
-    &lt;tbody&gt;
-       &lt;row&gt;&lt;/row&gt;
-       &lt;row&gt;&lt;/row&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;script&gt;
-Vue.component(&apos;row&apos;,{
-    data:function () {
-        return{
-            content:&apos;this is content&apos;
-        }
-    },
-    template:&quot;&lt;tr&gt;&lt;td&gt;{{content}}&lt;/td&gt;&lt;/tr&gt;&quot;
-})
-var vm = new Vue({
-    el: &apos;#app&apos;,
-    data: {}
-})
-&lt;/script&gt;
-</code></pre><p>console控制台中可以看到出现的bug：<br>    row被解析在table结构上面</p>
-<p>解决方法：<br>用is属性</p>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-&lt;table&gt;
-    &lt;tbody&gt;
-       &lt;tr is=&quot;row&quot;&gt;&lt;/tr&gt;
-       &lt;tr is=&quot;row&quot;&gt;&lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-</code></pre><p>类似的问题会在table/select/ul等结构体出现，都可以使用这种方法解决</p>
-<p>2.子组件中的data</p>
-<p>子组件中的data必须是以函数返回对象的形式而不能直接使用对象的形式<br><br><br>因为这是为了避免多个子组件共享数据</p>
-<p>3.关于ref的用法</p>
-<p>  在某些情况下不能避免要获取dom进行操作，我们可以使用ref方法：</p>
-<pre><code> &lt;div id=&quot;app&quot;&gt;
-    &lt;div ref=&quot;say&quot; @click=&quot;handleHtml&quot;&gt;hello world&lt;/div&gt;
- &lt;/div&gt;
+        <h2 id="块级元素的居中"><a href="#块级元素的居中" class="headerlink" title="块级元素的居中"></a>块级元素的居中</h2><p><br><br>css：<br>     <pre><br>     <code>&lt;div id=&quot;wrapper&quot;&gt;
+         &lt;div id=&quot;div&quot;&gt;&lt;/div&gt;
+     &lt;/div&gt;</code></pre><br>1/2.position定位方式</p>
+<pre><code>&lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        position: relative;
+    }
+    #div{
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin:auto;
+    }
+&lt;/style&gt;
 
- &lt;script&gt;
-   var vm = new Vue({
-    el: &apos;#app&apos;,
-    data: {
-    },
-    methods:{
-        handleHtml:function () {
-            alert( this.$refs.say.innerHTML)
-        }
+ &lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        position: relative;
     }
-  })
-&lt;/script&gt;
-</code></pre><p> ref方法不仅可以获得dom元素，还可以获得子组件：</p>
-<pre><code> //两数求和的例子
- &lt;div id=&quot;app&quot;&gt;
-   &lt;row ref=&apos;first&apos; @change=&quot;handleChange&quot;&gt;&lt;/row&gt;
-   &lt;row ref=&apos;second&apos; @change=&quot;handleChange&quot;&gt;&lt;/row&gt;
-   &lt;div&gt;{{total}}&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-Vue.component(&apos;row&apos;,{
-    data:function () {
-        return{
-            number:0
-        }
-    },
-    template:&quot;&lt;div @click=&apos;handleAdd&apos;&gt;{{number}}&lt;/div&gt;&quot;,
-    methods:{
-        handleAdd:function () {
-            this.number++
-            this.$emit(&apos;change&apos;)
-        }
+    #div{
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
     }
-})
-var vm = new Vue({
-    el: &apos;#app&apos;,
-    data: {
-        total:0
-    },
-    methods:{
-        handleChange:function () {
-            console.log(this.$refs.first.number)
-            console.log(this.$refs.second.number)
-            this.total=this.$refs.first.number+this.$refs.second.number
-        }
+&lt;/style&gt;
+</code></pre><p>3.属性的计算，父元素设置overflow：hidden，子元素设置margin</p>
+<pre><code>&lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        overflow: hidden;
     }
-})
+    #div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        margin: calc(50% - 50px) auto;
+    }
+&lt;/style&gt;
+</code></pre><p>4.对父元素设置display:table-cell和vertical-align：middle，<br>  子元素设置margin</p>
+<pre><code> &lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    #div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        margin: 0 auto;
+    }
+&lt;/style&gt;
+</code></pre><p>5.使用弹性盒子</p>
+<pre><code>&lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #div {
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+&lt;/style&gt;
+</code></pre><p>6.基于块级元素的特性，父元素的行高为自己的高度加上子元素一半的高度</p>
+<pre><code> &lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        line-height: 550px;
+        text-align: center;
+    }
+    #div {
+        width: 100px;
+        height: 100px;
+        background: red;
+       display: inline-block;
+    }
+&lt;/style&gt;
+</code></pre><h2 id="文字的居中"><a href="#文字的居中" class="headerlink" title="文字的居中"></a>文字的居中</h2><p>css：<br>     <pre><br>     <code>&lt;div id=&quot;wrapper&quot;&gt;
+         文字
+     &lt;/div&gt;</code></pre></p>
+<p>1.父元素设置行高和text-align</p>
+<pre><code>&lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        line-height: 500px;
+        text-align: center;
+    }
+
+&lt;/style&gt;
 </code></pre>
       
 
@@ -347,7 +376,7 @@ var vm = new Vue({
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://grimkiller.me/2018/08/30/vue的学习笔记（三）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://grimkiller.me/2018/09/14/css中的垂直居中方式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -361,18 +390,9 @@ var vm = new Vue({
   
 <nav id="article-nav">
   
-    <a href="/2018/09/14/css中的垂直居中方式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          css中的垂直居中方式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/29/vue的学习笔记（二）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue的学习笔记（二）</div>
+    <a href="/2018/08/30/vue的学习笔记（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue的学习笔记（三）</div>
       <i class="icon-circle-right"></i>
     </a>
   

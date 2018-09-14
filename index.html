@@ -160,6 +160,186 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-css中的垂直居中方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/14/css中的垂直居中方式/">css中的垂直居中方式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/14/css中的垂直居中方式/" class="archive-article-date">
+  	<time datetime="2018-09-14T08:20:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="块级元素的居中"><a href="#块级元素的居中" class="headerlink" title="块级元素的居中"></a>块级元素的居中</h2><p><br><br>css：<br>     <pre><br>     <code>&lt;div id=&quot;wrapper&quot;&gt;
+         &lt;div id=&quot;div&quot;&gt;&lt;/div&gt;
+     &lt;/div&gt;</code></pre><br>1/2.position定位方式</p>
+<pre><code>&lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        position: relative;
+    }
+    #div{
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin:auto;
+    }
+&lt;/style&gt;
+
+ &lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        position: relative;
+    }
+    #div{
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+    }
+&lt;/style&gt;
+</code></pre><p>3.属性的计算，父元素设置overflow：hidden，子元素设置margin</p>
+<pre><code>&lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        overflow: hidden;
+    }
+    #div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        margin: calc(50% - 50px) auto;
+    }
+&lt;/style&gt;
+</code></pre><p>4.对父元素设置display:table-cell和vertical-align：middle，<br>  子元素设置margin</p>
+<pre><code> &lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    #div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        margin: 0 auto;
+    }
+&lt;/style&gt;
+</code></pre><p>5.使用弹性盒子</p>
+<pre><code>&lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #div {
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+&lt;/style&gt;
+</code></pre><p>6.基于块级元素的特性，父元素的行高为自己的高度加上子元素一半的高度</p>
+<pre><code> &lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        line-height: 550px;
+        text-align: center;
+    }
+    #div {
+        width: 100px;
+        height: 100px;
+        background: red;
+       display: inline-block;
+    }
+&lt;/style&gt;
+</code></pre><h2 id="文字的居中"><a href="#文字的居中" class="headerlink" title="文字的居中"></a>文字的居中</h2><p>css：<br>     <pre><br>     <code>&lt;div id=&quot;wrapper&quot;&gt;
+         文字
+     &lt;/div&gt;</code></pre></p>
+<p>1.父元素设置行高和text-align</p>
+<pre><code>&lt;style&gt;
+    #wrapper{
+        width: 500px;
+        height: 500px;
+        background: blue;
+        line-height: 500px;
+        text-align: center;
+    }
+
+&lt;/style&gt;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/14/css中的垂直居中方式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="“-vue的学习笔记（三）" class="article article-type-“  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1497,88 +1677,10 @@ $ git pull</pre>
 
 
   
-    <article id="post-webpack的安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/19/webpack的安装/">webpack的安装</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/19/webpack的安装/" class="archive-article-date">
-  	<time datetime="2018-08-19T03:23:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.从官网下载node.js,使用npm安装webpack </p>
-<p>  为了不被墙，使用淘宝的npm镜像：</p>
-<pre><code>//接下来的步骤都由cnpm代替npm指令
-npm install -g cnpm -registry=http://registry.npm.taobao.org 
-</code></pre>
-
-<p> 2.安装webpack</p>
- <pre><code>//全局安装
-npm install -g webpack
-//安装到你的项目目录
-npm install --save-dev webpack
-</code></pre>
-
-<p> 3.提示没有安装cli(我出现的情况)，安装cli：</p>
-<pre><code>npm install webpack-cli -g</code></pre>
-
-<p>4.安装好后查看webpack版本：</p>
-<pre>webpack -v</pre>
-
-<p>如果能看到版本号的话，到这里已经安装好啦！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/19/webpack的安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
